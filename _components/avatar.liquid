@@ -1,0 +1,38 @@
+---
+name: Avatar
+description: An avatar
+variables:
+  size:
+    - string
+    - The size of the avatar. []
+  src:
+    - string
+    - The avatar src.
+  alt:
+    - string
+    - The avatar alt tag.
+---
+
+{% case size %}
+  {% when 'xs' %}
+    {% assign size_class_names = "h-6 w-6" %}
+  {% when 'sm' %}
+    {% assign size_class_names = "h-8 w-8" %}
+  {% when 'lg' %}
+    {% assign size_class_names = "h-12 w-12" %}
+  {% when 'xl' %}
+    {% assign size_class_names = "h-14 w-14" %}
+  {% else %}
+    {% assign size_class_names = "h-10 w-10" %}
+{% endcase %}
+
+{% assign img_class_names = "object-cover w-12 h-12 rounded-full" | append: size_class_names %}
+{% unless alt %}{% assign alt = "Andrew Mason's Avatar" %}{% endunless %}
+
+{% if src %}
+  <img src="{{ src }}" alt="{{ alt }}" class="{{ img_class_names }}">
+{% else %}
+  <span class="{{ size_class_names }} ">
+    <span class="">AM</span>
+  </span>
+{% endif %}

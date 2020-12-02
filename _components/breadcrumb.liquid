@@ -1,0 +1,32 @@
+---
+name: Breadcrumb
+variables:
+  page:
+    - object
+---
+
+<nav class="" aria-label="Breadcrumb">
+  {% assign crumbs = page.url | remove:'/index.html' | split: '/' %}
+  <ol class="">
+    <li class="">
+      <div class="">
+        <a href="/" class="text-gray-400 hover:text-gray-500">
+          Home Icon
+        </a>
+        <span class="sr-only">Home</span>
+      </div>
+    </li>
+    {% for crumb in crumbs offset: 1 %}
+        <li class="">
+          <div class="">
+           >
+            {% if forloop.last %}
+            <span class="">{{ page.title }}</span>
+            {% else %}
+            <a class="" href="{% assign crumb_limit = forloop.index | plus: 1 %}{% for crumb in crumbs limit: crumb_limit %}{{ crumb | append: '/' | replace:'without-plugin/','without-plugins/' }}{% endfor %}">{{ crumb | replace:'-',' ' | remove:'.html' | capitalize }}</a>
+            {% endif %}
+          </div>
+        </li>
+    {% endfor %}
+  </ol>
+</nav>

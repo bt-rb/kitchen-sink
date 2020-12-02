@@ -1,0 +1,11 @@
+{% assign valid_sizes = "xs, sm, default, lg, xl" | split: ", " %}
+
+{% for size in valid_sizes %}
+  {% render "avatar", size: size %}
+{% endfor %}
+
+<hr class="my-4">
+
+{% for size in valid_sizes %}
+  {% render "avatar", size: size, src: site.avatar_url %}
+{% endfor %}

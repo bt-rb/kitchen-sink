@@ -1,0 +1,23 @@
+---
+name: Description List
+variables:
+  title:
+    - string
+  content?:
+    - string
+  value?:
+    - string
+---
+
+<div class="">
+  <dt class="">
+    {{ title }}
+  </dt>
+  <dd class="">
+    {%- if value -%}
+      {{ value }}
+    {%- else -%}
+      {{ content }}
+    {%- endif -%}
+  </dd>
+</div>

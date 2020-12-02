@@ -1,0 +1,31 @@
+---
+name: Heading
+description: Displays a card a link styled as a button
+variables:
+  level:
+    - integer
+    - "1-6, defaults to 2"
+---
+
+{%- if text -%}
+  {% assign out = text %}
+{%- else -%}
+  {% assign out = content %}
+{%- endif -%}
+
+{% case level %}
+{% when 1 %}
+<h1 class="">{{ out }}</h1>
+{% when 2 %}
+<h2 class="">{{ out }}</h2>
+{% when 3 %}
+<h3 class="">{{ out }}</h3>
+{% when 4 %}
+<h4 class="">{{ out }}</h4>
+{% when 5 %}
+<h5 class="">{{ out }}</h5>
+{% when 6 %}
+<h6 class="">{{ out }}</h6>
+{% else %}
+<h2 class="">{{ out }}</h2>
+{% endcase %}

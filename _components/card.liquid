@@ -1,0 +1,23 @@
+---
+name: Card
+description: A blog post
+variables:
+  post:
+    - object
+mocks:
+  post:
+    date: 2020-05-01T08:21:29.290Z
+    url: "https://example.com"
+    title: "A test"
+    excerpt: "Accessibility (A11Y) testing cannot be fully automated, and requires special attention in order to ge..."
+---
+<div class="w-full p-2">
+  <a href="{{ post.url }}" class="grid grid-rows-3 px-4 rounded bg-gray-50">
+    <h3 class="inline-block grid-flow-col-dense text-2xl font-bold font-heading">
+      {{post.title}}
+    </h3>
+    <span class="text-xs font-semibold text-blue-600 uppercase rounded-full">
+      {{ post.tags }}
+    </span>
+  </a>
+</div>

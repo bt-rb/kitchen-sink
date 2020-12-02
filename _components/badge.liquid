@@ -1,0 +1,20 @@
+---
+name: Badge
+variables:
+  color:
+    - string
+  text:
+    - string
+---
+
+<span class="bg-{{ color | default: "gray" }}-100 text-{{ color | default: "gray" }}-800">
+  {%- if text -%}
+    {%- if href -%}
+      <a href="{{ href }}">{{ text }}</a>
+    {%- else -%}
+      {{ text }}
+    {%- endif -%}
+  {%- else -%}
+    {{ content }}
+  {%- endif -%}
+</span>

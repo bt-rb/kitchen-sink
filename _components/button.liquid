@@ -1,0 +1,47 @@
+---
+name: Button
+description: Displays a card a link styled as a button
+variables:
+  url:
+    - url
+    - The address of the page to go to
+  size:
+    - string
+    - "The size of the button. Options: xs, sm, lg, xl."
+  variant:
+    - string
+    - "The variant of the button. Options: secondary, white."
+  content: markdown
+---
+{%- assign base_classes = "" %}
+{%- assign transition_classes = "" %}
+{%- assign size_classes = "" %}
+{%- assign variant_classes = "" %}
+
+{%- if size == "xs" %}
+  {%- assign size_classes = "" %}
+{%- elsif size=="sm" %}
+  {%- assign size_classes = "" %}
+{%- elsif size=="lg" %}
+  {%- assign size_classes = "" %}
+{%- elsif size=="xl" %}
+  {%- assign size_classes = "" %}
+{%- else %}
+  {%- assign size_classes = "" %}
+{%- endif %}
+
+{%- if variant == "secondary" %}
+  {%- assign variant_classes = "" %}
+{%- elsif variant=="white" %}
+  {%- assign variant_classes = "" %}
+{%- else %}
+  {%- assign variant_classes = "" %}
+{%- endif %}
+
+{%- if variant == "secondary" %}
+  <a href="{{ url }}" class="{{ base_classes }} {{ size_classes }} {{ variant_classes }} {{ transition_classes }}">{{ content }}</a>
+{%- else %}
+  <span class="">
+    <a href="{{ url }}" class="{{ base_classes }} {{ size_classes }} {{ variant_classes }} {{ transition_classes }}">{{ content }}</a>
+  </span>
+{%- endif %}
